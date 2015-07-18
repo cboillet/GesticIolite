@@ -18,16 +18,18 @@ public final class R {
         public static final int type=0x7f020004;
     }
     public static final class id {
-        public static final int carousel=0x7f060009;
         public static final int carouselContainer=0x7f060004;
+        public static final int carouselContainer2=0x7f060008;
         public static final int carousel_horizontal=0x7f060002;
         public static final int carousel_vertical=0x7f060003;
-        public static final int content_frame=0x7f060007;
-        public static final int drawer_layout=0x7f060006;
+        public static final int content_frame=0x7f060006;
+        public static final int drawer_layout=0x7f060005;
         public static final int itemImage=0x7f060000;
         public static final int itemText=0x7f060001;
-        public static final int left_drawer=0x7f060008;
-        public static final int selectTypeButton=0x7f060005;
+        public static final int item_icon=0x7f060009;
+        public static final int item_title=0x7f06000a;
+        public static final int left_drawer=0x7f060007;
+        public static final int recyclerView=0x7f06000b;
     }
     public static final class layout {
         public static final int carousel_item=0x7f030000;
@@ -37,6 +39,8 @@ public final class R {
         public static final int fragment_activity_type_carousel=0x7f030004;
         public static final int home_activity=0x7f030005;
         public static final int launch_type_activity=0x7f030006;
+        public static final int main_item=0x7f030007;
+        public static final int main_menu=0x7f030008;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

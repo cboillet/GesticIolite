@@ -6,13 +6,10 @@ import org.slf4j.LoggerFactory;
 
 import com.gesticiolite.R;
 import com.gesticiolite.utils.Utils;
-import com.gesticiolite.view.CarouselTypeListener;
-import com.digitalaria.gama.carousel.Carousel;
 import com.gesticiolite.type.ItemList;
 import com.gesticiolite.type.PlaceList;
 import com.gesticiolite.type.StateList;
 import com.gesticiolite.type.TypeList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -34,22 +31,25 @@ import android.widget.Toast;
 
 public class LaunchTypeActivity extends Activity {
 	
-	//private CarouselRendering<?> carouselRendering = CarouselRendring.forName(intent.getStringExtra("class", "java.Object");
- 	  	
+ 	private Point screenDimention = new Point();
+	private Resources res;
+	
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		Bundle extras = getIntent().getExtras();
-//		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
- 	//private static Logger log = LoggerFactory.getLogger(TypeCarouselActivity.class);
-//		setContentView(R.layout.launch_type_activity);
-//		Utils.hideNavigationButtons(this);
-//		String ListType = extras.getString("class");
+	 	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+ 	    //private static Logger log = LoggerFactory.getLogger(TypeCarouselActivity.class);
+		setContentView(R.layout.launch_type_activity);
+		Utils.hideNavigationButtons(this);
+		String ListType = extras.getString("class");
 //		if (ListType == "PlaceList") {CarouselRendering carouselRendering = new LaunchTypeActivity.CarouselRendering(PlaceList.class, this); carouselRendering.drawCarousel();}
 //		if (ListType == "StateList") {CarouselRendering carouselRendering = new LaunchTypeActivity.CarouselRendering(StateList.class, this); carouselRendering.drawCarousel();}
 //		if (ListType == "TypeList") {CarouselRendering carouselRendering = new LaunchTypeActivity.CarouselRendering(TypeList.class, this); carouselRendering.drawCarousel();}
-		
+
 	}
+	
+
 //	
 //	public class CarouselRendering<T> {
 //		private Carousel carousel;

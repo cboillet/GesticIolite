@@ -3,10 +3,9 @@ package com.gesticiolite.utils;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -222,12 +221,12 @@ public class Utils
         return new BitmapDrawable(bitmapOrig);
     }
 
-    public static Point getScreenDimension(Activity a)
+    @SuppressLint("NewApi")
+	public static Point getScreenDimension(Activity a)
     {
         Point p = new Point();
         Display display = a.getWindowManager().getDefaultDisplay();
         display.getSize(p);
-
         return p;
     }
 

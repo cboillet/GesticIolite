@@ -9,19 +9,27 @@
 
     <application
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+       
         
+        <activity
+            android:name="com.gesticiolite.view.MenuActivity"
+            android:label="MenuActivity"
+            android:screenOrientation="sensorLandscape" >
+            <intent-filter>
+	            <action android:name="android.intent.action.MAIN" />
+	            <category android:name="android.intent.category.LAUNCHER" />
+	        </intent-filter>
+        </activity>
+
         <activity
         android:name="com.gesticiolite.view.HomeActivity"
         android:label="GesticIolite"
         >
-	        <intent-filter>
-	            <action android:name="android.intent.action.MAIN" />
-	            <category android:name="android.intent.category.LAUNCHER" />
-	        </intent-filter>
-    	</activity>
+	    </activity>
     	 <activity
             android:name="com.gesticiolite.view.TypeCarouselActivity"
             android:label="typeCarousel"
@@ -32,6 +40,13 @@
             android:label="LaunchType"
             android:screenOrientation="sensorLandscape" >
         </activity>
+        
+        <activity
+            android:name="com.gesticiolite.view.SelectDeviceActivity"
+            android:label="LaunchDevice"
+            android:screenOrientation="sensorLandscape" >
+        </activity>
+
         
         
     </application>

@@ -33,7 +33,6 @@ import android.widget.Toast;
 public class TypeCarouselActivity extends Activity {
 	private Carousel carousel;
 	private Resources res;
-	private Button _button;
 	private ImageAdapter adapter;
 	private ArrayList<ItemList> _types;
 	private int _selectedType = -1;
@@ -129,8 +128,6 @@ public class TypeCarouselActivity extends Activity {
     
 	private void updateTypeToLaunchLabel(String name)
 	{
-		_button = (Button) findViewById(R.id.selectTypeButton);
-		_button.setText(name);
 	}
 	
     public void setTypeToLaunch(int index)

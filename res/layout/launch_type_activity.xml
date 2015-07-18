@@ -9,26 +9,19 @@
 	    android:layout_height="match_parent">
     
     <LinearLayout
-		android:id="@+id/carouselContainer"
+		android:id="@+id/carouselContainer2"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:orientation="vertical">
+	    android:orientation="horizontal">
 	    
 		     <com.digitalaria.gama.carousel.Carousel
-		        android:id="@+id/carousel"
+		        android:id="@+id/carousel_vertical"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_vertical"/>  
-     		
-     </LinearLayout>
+
+	 </LinearLayout>
      
-     <Button
-		        android:id="@+id/selectTypeButton"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="center|center_vertical"
-		        android:text="Select filter" 
-		        android:onClick="selectTypeClick"/>
      
     </RelativeLayout>
 
