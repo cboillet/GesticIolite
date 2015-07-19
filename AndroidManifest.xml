@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gesticiolite"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.01" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -13,7 +13,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-       
         
         <activity
             android:name="com.gesticiolite.view.MenuActivity"
@@ -24,15 +23,23 @@
 	            <category android:name="android.intent.category.LAUNCHER" />
 	        </intent-filter>
         </activity>
-
+        <service android:name="com.gesticiolite.gestures.GestureRecognitionService" android:enabled="true" android:label="GestureRecognitionService">
+			<intent-filter>
+				<action android:name="com.gesticiolite.gestures.GESTURE_RECOGNIZER" />
+			</intent-filter>
+		</service>
+        
+        
         <activity
             android:name="com.gesticiolite.view.SelectDeviceActivity"
             android:label="LaunchDevice"
             android:screenOrientation="sensorLandscape" >
-        </activity>
-
-        
+        </activity>     
         
     </application>
-
+    
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    
 </manifest>

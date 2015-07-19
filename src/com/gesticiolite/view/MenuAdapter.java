@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gesticiolite.R;
+import com.gesticiolite.gestures.*;
 
 import android.content.Intent;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +33,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 		return parameters;
 	}
 	
+
 	 // Create new views (invoked by the layout manager)
     @Override
     public MenuAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
