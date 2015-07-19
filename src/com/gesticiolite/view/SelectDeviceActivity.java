@@ -22,6 +22,7 @@ public class SelectDeviceActivity extends Activity{
 	                new ItemData("device 2",R.drawable.square),
 	                new ItemData("device 3",R.drawable.square)};
 	        
+	       //String ListType = extras.getString("class");
 	        // 2. set layoutManger
 	        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 	        recyclerView.setLayoutManager(layoutManager);

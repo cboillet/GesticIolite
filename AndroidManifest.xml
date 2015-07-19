@@ -26,22 +26,6 @@
         </activity>
 
         <activity
-        android:name="com.gesticiolite.view.HomeActivity"
-        android:label="GesticIolite"
-        >
-	    </activity>
-    	 <activity
-            android:name="com.gesticiolite.view.TypeCarouselActivity"
-            android:label="typeCarousel"
-            android:screenOrientation="sensorLandscape" >
-        </activity>
-        <activity
-            android:name="com.gesticiolite.view.LaunchTypeActivity"
-            android:label="LaunchType"
-            android:screenOrientation="sensorLandscape" >
-        </activity>
-        
-        <activity
             android:name="com.gesticiolite.view.SelectDeviceActivity"
             android:label="LaunchDevice"
             android:screenOrientation="sensorLandscape" >
