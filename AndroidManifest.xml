@@ -14,21 +14,28 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
-        <activity
-            android:name="com.gesticiolite.view.MenuActivity"
-            android:label="MenuActivity"
-            android:screenOrientation="sensorLandscape" >
+        
+       <activity
+            android:name="com.gesticiolite.gestures.trainer.TrainerActivity"
+            android:label="TrainerActivity"
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
 	            <action android:name="android.intent.action.MAIN" />
 	            <category android:name="android.intent.category.LAUNCHER" />
 	        </intent-filter>
         </activity>
+
         <service android:name="com.gesticiolite.gestures.GestureRecognitionService" android:enabled="true" android:label="GestureRecognitionService">
 			<intent-filter>
 				<action android:name="com.gesticiolite.gestures.GESTURE_RECOGNIZER" />
 			</intent-filter>
 		</service>
-        
+       
+         <activity
+            android:name="com.gesticiolite.view.MenuActivity"
+            android:label="MenuActivity"
+            android:screenOrientation="sensorLandscape" >
+       	</activity>
         
         <activity
             android:name="com.gesticiolite.view.SelectDeviceActivity"

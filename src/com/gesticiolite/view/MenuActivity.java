@@ -28,55 +28,6 @@ import android.os.RemoteException;
 
 public class MenuActivity extends Activity{
 
-	public IGestureRecognitionService recognitionService;
-	
-	public final ServiceConnection serviceConnection = new ServiceConnection() {
-		@Override
-		public void onServiceConnected(ComponentName name, IBinder service) {
-		      recognitionService = IGestureRecognitionService.Stub.asInterface(service);
-		      try {     
-		         recognitionService.registerListener(IGestureRecognitionListener.Stub.asInterface(gestureListenerStub));
-		      } catch (RemoteException e) {
-		         e.printStackTrace();
-		      }
-			
-		}
-	
-		@Override
-		public void onServiceDisconnected(ComponentName name) {
-			// TODO Auto-generated method stub
-			
-		}
-	};	
-
-	IBinder gestureListenerStub = new IGestureRecognitionListener.Stub() {
-	@Override
-	public void onGestureLearned(String gestureName) throws RemoteException {
-		Toast.makeText(MenuActivity.this, String.format("Gesture %s learned", gestureName), Toast.LENGTH_SHORT).show();
-		System.err.println("Gesture %s learned");
-	}
-
-	@Override
-	public void onGestureRecognized(final Distribution distribution) throws RemoteException {
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				Toast.makeText(MenuActivity.this, String.format("%s: %f", distribution.getBestMatch(), distribution.getBestDistance()), Toast.LENGTH_LONG).show();
-				System.err.println(String.format("%s: %f", distribution.getBestMatch(), distribution.getBestDistance()));
-			}
-		});
-	}
-	
-	@Override
-	public void onTrainingSetDeleted(String trainingSet) throws RemoteException {
-		Toast.makeText(MenuActivity.this, String.format("Training set %s deleted", trainingSet), Toast.LENGTH_SHORT).show();
-		System.err.println(String.format("Training set %s deleted", trainingSet));
-	}
-
-
-	};
-	
-
 	@Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -88,7 +39,7 @@ public class MenuActivity extends Activity{
 	        // 1. get a reference to recyclerView 
 	        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 	         
-	        // this is data fro recycler view
+	        // this is data for recycler view
 	        ItemData itemsData[] = { new ItemData("Type",R.drawable.type),
 	                new ItemData("Place",R.drawable.place),
 	                new ItemData("state",R.drawable.state)};
@@ -103,23 +54,12 @@ public class MenuActivity extends Activity{
 	        recyclerView.setAdapter(mAdapter);
 	        // 5. set item animator to DefaultAnimator
 	        recyclerView.setItemAnimator(new DefaultItemAnimator());
-	
-	        
 	    }
 	
 		@Override
-		protected void onResume() {
-			//Intent bindIntent = new Intent("com.gesticiolite.gestures.GESTURE_RECOGNIZER");
-			Intent bindIntent = new Intent(this, GestureRecognitionService.class);
-			bindService(bindIntent, serviceConnection, Context.BIND_AUTO_CREATE);
-			super.onResume();
-		}
+		protected void onResume() {}
 		
 		
 		@Override
-		protected void onPause() {
-			recognitionService = null;
-			unbindService(serviceConnection);
-			super.onPause();
-		}
+		protected void onPause() {}
 };
