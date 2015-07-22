@@ -11,6 +11,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -42,6 +43,7 @@ public class MenuActivity extends Activity{
 	private MyLayoutManager mLayoutManager = new MyLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 	private EventGenerator eventGen;
 	MenuAdapter mAdapter;
+	RecyclerView recyclerView;
 	private final ServiceConnection serviceConnection = new ServiceConnection() {
 
 		@Override
@@ -73,7 +75,7 @@ public class MenuActivity extends Activity{
 					//eventGen.generateEvent(distribution.getBestMatch(), distribution.getBestDistance());
 					switch(distribution.getBestMatch()){
 						case "Up":
-							if (position<2){
+							if (position<(mAdapter.getItemCount()-1)){
 							mLayoutManager.highlightView(position,"#FFFFFF");
 							position ++;
 							System.out.println("scroll to position"+position);
@@ -91,7 +93,9 @@ public class MenuActivity extends Activity{
 							}
 							break;
 						case "Select":
-							mAdapter.viewHolder.onClick(mLayoutManager.findViewByPosition(position));
+							mAdapter.updateRecyclerOnClick(recyclerView,mLayoutManager.findViewByPosition(position), position);
+							//mAdapter.selectionLvl++;
+							mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);				
 							break;
 					}
 				
@@ -133,22 +137,18 @@ public class MenuActivity extends Activity{
 	@Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
+	        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	        setContentView(R.layout.main_menu);        
 	        trainingSet = getIntent().getStringExtra("trainingSetName");
 			
 	        // 1. get a reference to recyclerView 
-	        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+	        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 	         
-	        // this is data for recycler view
-	        ItemData itemsData[] = { new ItemData("Type",R.drawable.type),
-	                new ItemData("Place",R.drawable.place),
-	                new ItemData("state",R.drawable.state)};
-	        
 	        // 2. set layoutManger
 	        recyclerView.setLayoutManager(mLayoutManager);
 	      
 	        // 4. create an adapter 
-	        mAdapter = new MenuAdapter(itemsData);
+	        mAdapter = new MenuAdapter(0);
 	        // 5. set adapter
 	        recyclerView.setAdapter(mAdapter);
 	        // 6. set item animator to DefaultAnimator

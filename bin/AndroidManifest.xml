@@ -17,7 +17,7 @@
         
        <activity
             android:name="com.gesticiolite.gestures.trainer.TrainerActivity"
-            android:label="TrainerActivity"
+            android:label="GesticIolite"
             android:screenOrientation="sensorPortrait" >
             <intent-filter>
 	            <action android:name="android.intent.action.MAIN" />

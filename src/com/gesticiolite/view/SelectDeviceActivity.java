@@ -28,7 +28,7 @@ public class SelectDeviceActivity extends Activity{
 	        recyclerView.setLayoutManager(layoutManager);
 	        // 3. create an adapter 
 	        
-	        MenuAdapter mAdapter = new MenuAdapter(itemsData);
+	        MenuAdapter mAdapter = new MenuAdapter(1);
 	        // 4. set adapter
 	        recyclerView.setAdapter(mAdapter);
 	        // 5. set item animator to DefaultAnimator
