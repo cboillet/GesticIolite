@@ -37,7 +37,11 @@ import android.os.RemoteException;
 public class MenuActivity extends Activity{
 
 	String trainingSet;
+	int position = 1;
 	private IGestureRecognitionService recognitionService;
+	private MyLayoutManager mLayoutManager = new MyLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+	private EventGenerator eventGen;
+	MenuAdapter mAdapter;
 	private final ServiceConnection serviceConnection = new ServiceConnection() {
 
 		@Override
@@ -66,6 +70,31 @@ public class MenuActivity extends Activity{
 				public void run() {
 					Toast.makeText(MenuActivity.this, String.format("%s: %f", distribution.getBestMatch(), distribution.getBestDistance()), Toast.LENGTH_LONG).show();
 					System.err.println(String.format("%s: %f", distribution.getBestMatch(), distribution.getBestDistance()));
+					//eventGen.generateEvent(distribution.getBestMatch(), distribution.getBestDistance());
+					switch(distribution.getBestMatch()){
+						case "Up":
+							if (position<2){
+							mLayoutManager.highlightView(position,"#FFFFFF");
+							position ++;
+							System.out.println("scroll to position"+position);
+							mLayoutManager.scrollToPosition(position);
+							mLayoutManager.highlightView(position,"#E6E4E1");
+							}
+							break;
+						case "Down":
+							if (position>0){
+							mLayoutManager.highlightView(position,"#FFFFFF");
+							position --;
+							System.out.println("scroll to position"+position);
+							mLayoutManager.scrollToPosition(position);
+							mLayoutManager.highlightView(position,"#E6E4E1");
+							}
+							break;
+						case "Select":
+							mAdapter.viewHolder.onClick(mLayoutManager.findViewByPosition(position));
+							break;
+					}
+				
 				}
 			});
 		}
@@ -107,24 +136,6 @@ public class MenuActivity extends Activity{
 	        setContentView(R.layout.main_menu);        
 	        trainingSet = getIntent().getStringExtra("trainingSetName");
 			
-	        final Button start = (Button) findViewById(R.id.startClassifying);
-
-			start.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View arg0) {
-						if (recognitionService != null) {
-						try {
-							recognitionService.startClassificationMode(trainingSet);
-							System.out.println("starting classifying");
-						} catch (RemoteException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-				}
-			});
-	        
 	        // 1. get a reference to recyclerView 
 	        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 	         
@@ -134,14 +145,13 @@ public class MenuActivity extends Activity{
 	                new ItemData("state",R.drawable.state)};
 	        
 	        // 2. set layoutManger
-	        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-	        recyclerView.setLayoutManager(layoutManager);
-	        // 3. create an adapter 
-	        
-	        MenuAdapter mAdapter = new MenuAdapter(itemsData);
-	        // 4. set adapter
+	        recyclerView.setLayoutManager(mLayoutManager);
+	      
+	        // 4. create an adapter 
+	        mAdapter = new MenuAdapter(itemsData);
+	        // 5. set adapter
 	        recyclerView.setAdapter(mAdapter);
-	        // 5. set item animator to DefaultAnimator
+	        // 6. set item animator to DefaultAnimator
 	        recyclerView.setItemAnimator(new DefaultItemAnimator());
 	    }
 	

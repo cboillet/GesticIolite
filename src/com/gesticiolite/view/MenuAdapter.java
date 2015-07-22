@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 	private ItemData[] itemsData;
+	ViewHolder viewHolder;
 	private static List<String> parameters = new ArrayList<String>(); //list of the selected parameters main type, subtype
 	
 	public MenuAdapter(ItemData[] itemsData){
@@ -41,7 +42,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item, null);
  
         // create ViewHolder     
-        ViewHolder viewHolder = new ViewHolder(itemLayoutView);
+        viewHolder = new ViewHolder(itemLayoutView);
         return viewHolder;
     }
     
@@ -84,6 +85,10 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 		}
     }
     
+    public void makesEverythingLookPretty(){
+    	int nb = getItemCount();
+    	
+    }
     
     @Override
     public int getItemCount() {

@@ -34,13 +34,13 @@
          <activity
             android:name="com.gesticiolite.view.MenuActivity"
             android:label="MenuActivity"
-            android:screenOrientation="sensorLandscape" >
+            android:screenOrientation="sensorPortrait" >
        	</activity>
         
         <activity
             android:name="com.gesticiolite.view.SelectDeviceActivity"
             android:label="LaunchDevice"
-            android:screenOrientation="sensorLandscape" >
+            android:screenOrientation="sensorPortrait" >
         </activity>     
         
     </application>
