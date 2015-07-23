@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:focusable="true">
+    
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="Registering training Set:\t"
+		android:id="@+id/trainingSetLabel" />
+	<TextView android:layout_toRightOf="@+id/trainingSetLabel"
+		android:id="@+id/activeTrainingSet" 
+		android:layout_height="wrap_content" android:text="default"
+		android:layout_width="wrap_content"></TextView>
+	
+	<EditText android:id="@+id/trainingSetName"
+		android:layout_height="wrap_content" 
+		android:inputType="text" android:text="default" android:layout_below="@id/trainingSetLabel"
+		android:layout_width="fill_parent" android:layout_toRightOf="@+id/startNewSetButton" />
+	<TextView android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:text="Gesture Name:"
+		android:id="@+id/gestureLabel" android:layout_below="@+id/startNewSetButton"></TextView>
+	
+	<Button android:id="@+id/startNewSetButton"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignLeft="@id/gestureLabel" android:text="Change Training Set"
+		android:layout_below="@+id/trainingSetLabel" />
+	
+	
+	<TextView android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content" android:text="Gesture Up:"
+	    android:id="@+id/gestureUp" android:layout_below="@+id/gestureLabel"></TextView>
+	<Button android:id="@+id/trainUp" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@+id/gestureLabel" android:layout_alignLeft="@id/trainingSetName"
+		android:text="Start Training" />
+	
+	<TextView android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content" android:text="Gesture Down:"
+	    android:id="@+id/gestureDown" android:layout_below="@+id/trainUp"></TextView>
+	<Button android:id="@+id/trainDown" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@+id/trainUp" android:layout_alignLeft="@id/trainingSetName"
+		android:text="Start Training" />
+	
+	<TextView android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content" android:text="Gesture Select:"
+	    android:id="@+id/gestureSelect" android:layout_below="@+id/trainDown"></TextView>
+	<Button android:id="@+id/trainSelect" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@+id/trainDown" android:layout_alignLeft="@id/trainingSetName"
+		android:text="Start Training" />
+	
+	<TextView android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content" android:text="Gesture Select all:"
+	    android:id="@+id/gestureSelectAll" android:layout_below="@+id/trainSelect"></TextView>
+	<Button android:id="@+id/trainSelectAll" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@+id/trainSelect" android:layout_alignLeft="@id/trainingSetName"
+		android:text="Start Training" />
+	
+	<TextView android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content" android:text="Gesture Activate:"
+	    android:id="@+id/gestureActivate" android:layout_below="@+id/trainSelectAll"></TextView>
+	<Button android:id="@+id/trainActivate" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@+id/trainSelectAll" android:layout_alignLeft="@id/trainingSetName"
+		android:text="Start Training" />
+	
+	<TextView android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content" android:text="Gesture Deactivate:"
+	    android:id="@+id/gestureDeactivate" android:layout_below="@+id/trainActivate"></TextView>
+	<Button android:id="@+id/trainDeactivate" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@+id/trainActivate" android:layout_alignLeft="@id/trainingSetName"
+		android:text="Start Training" />
+	
+	<TextView android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content" android:text="Gesture Cancel:"
+	    android:id="@+id/gestureCancel" android:layout_below="@+id/trainDeactivate"></TextView>
+	<Button android:id="@+id/trainCancel" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_below="@+id/trainDeactivate" android:layout_alignLeft="@id/trainingSetName"
+		android:text="Start Training" />
+	
+
+	<Button android:id="@+id/deleteTrainingSetButton"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/trainCancel"
+		android:text="Delete Training Set" />
+	
+	<Button android:id="@+id/launchApp"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_below="@id/deleteTrainingSetButton"
+		android:onClick="onClick"
+		android:text="Launchnew OnClick" />
+    
+
+</RelativeLayout>
